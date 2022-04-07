@@ -11,28 +11,7 @@ def is_prime(n):
      while i*i < n and n % i != 0:
          i += 1
      return i*i > n
-"""
-Esto de aquÃ- no funciona. El parÃ¡metro mqtcc no funciona en
-un proceso.
-"""
-# def timer(time, mqttc):
-# msg = f’timer working. timeout: {time}’
-# print(msg)
-# mqttc.publish(TIMER_STOP, msg)#, hostname=BROKER)
-# sleep(time)
-# msg = f’timer working. timeout: {time}’
-# mqttc.publish(TIMER_STOP, msg)#, hostname=BROKER)
-# print(’timer end working’)
-# es necesario poner publish.single
-# def timer(time, data):
-# msg = f’timer working. timeout: {time}’
-# print(msg)
-# publish.single(TIMER_STOP, msg, hostname=BROKER)
-# sleep(time)
-# msg = f’timer working. timeout: {time}’
-# publish.single(TIMER_STOP, msg, hostname=BROKER)
-# print(’timer end working’)
-# o crear in cliente nuevo
+
 def timer(time, data):
      mqttc = Client()
      mqttc.connect(data['broker'])
