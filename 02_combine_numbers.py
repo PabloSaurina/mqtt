@@ -26,7 +26,6 @@ def timer(time, data):
 def on_message(mqttc, data, msg):
      print(f"MESSAGE:data:{data}, msg.topic:{msg.topic}, payload:{msg.payload}")
      try:
-         #if is_prime(int(msg.payload)):
          if int(msg.payload) % 2 == 0:
              worker = Process(target=timer,
              args=(random.random()*20, data))
