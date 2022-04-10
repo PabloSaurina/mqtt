@@ -14,13 +14,13 @@ def on_message(mqttc, data, msg):
          if msg.topic==HUMIDITY:
              humidity = int(msg.payload)
              if humidity>data['humidity_threshold']:
-                 print(f'umbral humedad {humidity} superado, cancelando suscripciÃ³n')
-                 mqttc.unsubscribe(HUMIDITY) # Esto debe ser lo Ãºltimo
+                 print(f'umbral humedad {humidity} superado, cancelando suscripción')
+                 mqttc.unsubscribe(HUMIDITY) # Esto debe ser lo último
                  data['status'] = 0
          elif TEMP in msg.topic:
              temp = int(msg.payload)
              if temp<=data['temp_threshold']:
-                 print(f'temperatura {temp} por debajo de umbral, cancelando suscripciÃ³n')
+                 print(f'temperatura {temp} por debajo de umbral, cancelando suscripción')
                  data['status']=0
                  mqttc.unsubscribe(HUMIDITY)
 def on_log(mqttc, data, level, buf):
